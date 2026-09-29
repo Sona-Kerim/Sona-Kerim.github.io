@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sona Kərimli — Frontend Developer</title>
+<meta name="description" content="Veb sayt və mobil tətbiq sifarişi. Frontend Developer və proqramlaşdırma müəllimi, Bakı.">
+<meta property="og:title" content="Sona Kərimli — Frontend Developer">
+<meta property="og:description" content="Veb sayt və mobil tətbiq sifarişi. Frontend Developer və proqramlaşdırma müəllimi, Bakı.">
+<meta property="og:image" content="https://sona-kerim.github.io/devsys.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow reading column; projects as alternating image/text rows; section labels written as code comments */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --ink:#15201c; --muted:#56635e; --line:#d9e0dd;
+  --accent:#1c7250; --accent-soft:#e1f0e8; --on-accent:#ffffff;
+  --display:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#172019; --ink:#e7eeea; --muted:#9fb0a8; --line:#2a3631;
+  --accent:#4cc28d; --accent-soft:#1b3328; --on-accent:#0b1410; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#172019; --ink:#e7eeea; --muted:#9fb0a8; --line:#2a3631;
+  --accent:#4cc28d; --accent-soft:#1b3328; --on-accent:#0b1410; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:40px 64px;display:flex;flex-direction:column;gap:72px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.02em}
+
+/* hero */
+.lang{position:absolute;top:18px;right:20px;display:flex;gap:4px;font-family:var(--mono);font-size:13px}
+.lang a{padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid var(--line);background:var(--surface)}
+.lang a[aria-current]{color:var(--on-accent);background:var(--accent);border-color:var(--accent)}
+.wrap{position:relative}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.hero img{width:148px;height:148px;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.hero-text{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hero h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.02em}
+.role{font-size:18px;color:var(--muted);max-width:60ch}
+.role b{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px var(--body);padding:10px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+
+section{display:flex;flex-direction:column;gap:24px}
+section>h2{font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:-.01em}
+.head{display:flex;flex-direction:column;gap:6px}
+.lead{color:var(--muted);max-width:62ch}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.svc h3{font-size:18px;font-weight:600}
+.svc p{color:var(--muted);font-size:15px}
+
+/* projects */
+.project{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:center;padding-block:8px}
+.project:nth-child(even) .shot{order:2}
+.shot{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface);max-width:100%}
+.shot img{display:block;width:100%;height:auto}
+.pbody{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pbody h3{font-size:22px;font-weight:700}
+.pbody ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;background:var(--accent-soft);color:var(--ink);padding:3px 8px;border-radius:5px}
+.links{display:flex;flex-wrap:wrap;gap:14px;font-weight:500;font-size:15px}
+.note{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.projects{display:flex;flex-direction:column;gap:48px}
+
+/* teaching */
+.teach{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.fact .num{font-family:var(--display);font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+.fact p{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail code{font-family:var(--mono);font-size:17px;user-select:all;overflow-wrap:anywhere}
+.status{font-size:14px;color:var(--accent);min-height:1.4em}
+.socials{display:flex;flex-wrap:wrap;gap:10px}
+footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .hero img{width:112px;height:112px}
+  .services,.teach{grid-template-columns:1fr}
+  .project{grid-template-columns:1fr;gap:16px}
+  .project:nth-child(even) .shot{order:0}
+  .wrap{gap:56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="lang" aria-label="Dil"><a href="./" aria-current="page">AZ</a><a href="en.html">EN</a></nav>
+  <header class="hero">
+    <img src="sona.webp" alt="Sona Kərimli">
+    <div class="hero-text">
+      <span class="label">// Frontend Developer · Proqramlaşdırma müəllimi</span>
+      <h1>Sona Kərimli</h1>
+      <p class="role">Veb saytlar və <b>iOS / Android mobil tətbiqlər</b> hazırlayıram. Developia Engineering-də məktəb idarəetmə platforması DevSys-in frontend hissəsini qurmuşam, 2023-cü ildən isə proqramlaşdırma dərsləri keçirəm.</p>
+      <div class="actions">
+        <a class="btn primary" href="#elaqe">Layihə sifariş et</a>
+        <a class="btn" href="#layiheler">Layihələrə bax</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="xidmetler">
+    <div class="head">
+      <span class="label">// xidmətlər</span>
+      <h2>Nə hazırlaya bilərəm</h2>
+    </div>
+    <div class="services">
+      <div class="svc">
+        <h3>Veb sayt</h3>
+        <p>Şirkət saytı, təqdimat və portfolio səhifələri. Mobil uyğun dizayn, çoxdilli dəstək, əlaqə formaları.</p>
+      </div>
+      <div class="svc">
+        <h3>Veb tətbiq və panel</h3>
+        <p>İstifadəçi girişi olan portallar, admin panellər, hesabatlar, qrafiklər, API ilə inteqrasiya.</p>
+      </div>
+      <div class="svc">
+        <h3>Mobil tətbiq</h3>
+        <p>React Native ilə iOS və Android üçün tətbiq, App Store və Google Play-ə yükləmə.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="layiheler">
+    <div class="head">
+      <span class="label">// layihələr</span>
+      <h2>Real istifadədə olan işlərim</h2>
+      <p class="lead">Aşağıdakı layihələr Developia Engineering-də hazırlanıb və hazırda istifadədədir. Kodu şirkətə aid olduğu üçün açıq deyil, amma saytlara baxa bilərsiniz.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <div class="shot"><img src="devsys.webp" alt="DevSys müəllim, tələbə və valideyn portallarının giriş səhifələri" loading="lazy"></div>
+        <div class="pbody">
+          <h3>DevSys — məktəb idarəetmə platforması</h3>
+          <ul>
+            <li>Müəllim portalı: dərs axını, qiymətləndirmə, davamiyyət, testlər, Excel ixracı, statistika</li>
+            <li>Tələbə portalı: vaxt limitli testlər, video dərslər, qiymətlər, oyunlar</li>
+            <li>Valideyn portalı: qiymətlər, davamiyyət, ödənişlər</li>
+          </ul>
+          <div class="tags"><span class="tag">React</span><span class="tag">Zustand</span><span class="tag">Redux</span><span class="tag">Recharts</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+          <div class="links"><a href="https://devsys.az/teacher" target="_blank" rel="noopener">Müəllim portalı</a><a href="https://devsys.az/student" target="_blank" rel="noopener">Tələbə portalı</a><a href="https://devsys.az/parent" target="_blank" rel="noopener">Valideyn portalı</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="mobile.webp" alt="DevSys Parent Control tətbiqinin App Store səhifəsi" loading="lazy"></div>
+        <div class="pbody">
+          <h3>DevSys Parent Control — mobil tətbiq</h3>
+          <ul>
+            <li>Valideynlər üçün qiymətlər, dərs cədvəli, PDF sənədlər, məmnunluq sorğusu</li>
+            <li>Yeni funksiyalar, Expo yeniləmələri, Android build və CI</li>
+          </ul>
+          <p class="note">Tətbiqi komanda yoldaşım qurub; layihə mənə təhvil veriləndən sonra inkişafını və dəstəyini aparıram.</p>
+          <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">iOS</span><span class="tag">Android</span></div>
+          <div class="links"><a href="https://apps.apple.com/us/app/devsys-parent-control/id6760163960" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.developiadevsys.developia" target="_blank" rel="noopener">Google Play</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="developia.webp" alt="developia.az saytının ana səhifəsi" loading="lazy"></div>
+        <div class="pbody">
+          <h3>Developia Engineering — korporativ sayt</h3>
+          <ul>
+            <li>Ana səhifə, haqqımızda, əlaqə və 24 layihə səhifəsi</li>
+            <li>Azərbaycan, rus və ingilis dillərində</li>
+            <li>Portfolio filtrləri, animasiyalar, WordPress API ilə əlaqə forması</li>
+          </ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">i18n</span></div>
+          <div class="links"><a href="https://developia.az" target="_blank" rel="noopener">developia.az</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="muellimlik">
+    <div class="head">
+      <span class="label">// müəllimlik</span>
+      <h2>Kod yazmağı da öyrədirəm</h2>
+      <p class="lead">Developia Engineering Academy-də uşaqlara və gənclərə proqramlaşdırma dərsləri keçirəm. Mürəkkəb mövzuları sadə dildə izah edirəm, hər dərsi praktiki layihə ilə bitiririk.</p>
+    </div>
+    <div class="teach">
+      <div class="fact"><span class="num">2023-dən</span><p>proqramlaşdırma müəllimi</p></div>
+      <div class="fact"><span class="num">HTML · CSS · JS · React · Scratch</span><p>tədris etdiyim mövzular</p></div>
+    </div>
+  </section>
+
+  <section id="elaqe" class="contact">
+    <div class="head">
+      <span class="label">// əlaqə</span>
+      <h2>Layihəniz var? Yazın.</h2>
+      <p class="lead">Sayt və ya mobil tətbiq ideyanızı qısaca yazın: nə üçündür, hansı səhifələr lazımdır, nə vaxta hazır olmalıdır. Qiymət və müddəti yazaram.</p>
+    </div>
+    <div class="mail">
+      <code id="email">kerimlisona97@gmail.com</code>
+      <button class="btn copy" data-target="email" type="button">Kopyala</button>
+    </div>
+    <div class="mail">
+      <code id="phone">+994 51 344 14 21</code>
+      <button class="btn copy" data-target="phone" type="button">Kopyala</button>
+      <a class="btn" href="https://wa.me/994513441421" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="socials">
+      <a class="btn" href="https://www.tiktok.com/@sona.teacher" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn" href="https://www.linkedin.com/in/sona-k%C9%99rimli-83014b253" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Sona-Kerim" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <footer>Bakı, Azərbaycan</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){ b.addEventListener('click', function(){
+  var el = document.getElementById(b.dataset.target), t = el.textContent, s = document.getElementById('status');
+  function fallback(){ var r=document.createRange(); r.selectNodeContents(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); s.textContent='Seçildi, Ctrl+C ilə kopyalayın.'; }
+  try { navigator.clipboard.writeText(t).then(function(){ s.textContent='Kopyalandı: '+t; }, fallback); } catch(e){ fallback(); }
+}); });
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sona Karimli — Frontend Developer</title>
+<meta name="description" content="Websites and mobile apps. Frontend Developer and programming instructor based in Baku.">
+<meta property="og:title" content="Sona Karimli — Frontend Developer">
+<meta property="og:description" content="Websites and mobile apps. Frontend Developer and programming instructor based in Baku.">
+<meta property="og:image" content="https://sona-kerim.github.io/devsys.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow reading column; projects as alternating image/text rows; section labels written as code comments */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --ink:#15201c; --muted:#56635e; --line:#d9e0dd;
+  --accent:#1c7250; --accent-soft:#e1f0e8; --on-accent:#ffffff;
+  --display:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#172019; --ink:#e7eeea; --muted:#9fb0a8; --line:#2a3631;
+  --accent:#4cc28d; --accent-soft:#1b3328; --on-accent:#0b1410; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#172019; --ink:#e7eeea; --muted:#9fb0a8; --line:#2a3631;
+  --accent:#4cc28d; --accent-soft:#1b3328; --on-accent:#0b1410; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:40px 64px;display:flex;flex-direction:column;gap:72px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.02em}
+
+/* hero */
+.lang{position:absolute;top:18px;right:20px;display:flex;gap:4px;font-family:var(--mono);font-size:13px}
+.lang a{padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid var(--line);background:var(--surface)}
+.lang a[aria-current]{color:var(--on-accent);background:var(--accent);border-color:var(--accent)}
+.wrap{position:relative}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.hero img{width:148px;height:148px;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.hero-text{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hero h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.02em}
+.role{font-size:18px;color:var(--muted);max-width:60ch}
+.role b{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px var(--body);padding:10px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+
+section{display:flex;flex-direction:column;gap:24px}
+section>h2{font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:-.01em}
+.head{display:flex;flex-direction:column;gap:6px}
+.lead{color:var(--muted);max-width:62ch}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.svc h3{font-size:18px;font-weight:600}
+.svc p{color:var(--muted);font-size:15px}
+
+/* projects */
+.project{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:center;padding-block:8px}
+.project:nth-child(even) .shot{order:2}
+.shot{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface);max-width:100%}
+.shot img{display:block;width:100%;height:auto}
+.pbody{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pbody h3{font-size:22px;font-weight:700}
+.pbody ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;background:var(--accent-soft);color:var(--ink);padding:3px 8px;border-radius:5px}
+.links{display:flex;flex-wrap:wrap;gap:14px;font-weight:500;font-size:15px}
+.note{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.projects{display:flex;flex-direction:column;gap:48px}
+
+/* teaching */
+.teach{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.fact .num{font-family:var(--display);font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+.fact p{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail code{font-family:var(--mono);font-size:17px;user-select:all;overflow-wrap:anywhere}
+.status{font-size:14px;color:var(--accent);min-height:1.4em}
+.socials{display:flex;flex-wrap:wrap;gap:10px}
+footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .hero img{width:112px;height:112px}
+  .services,.teach{grid-template-columns:1fr}
+  .project{grid-template-columns:1fr;gap:16px}
+  .project:nth-child(even) .shot{order:0}
+  .wrap{gap:56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="lang" aria-label="Language"><a href="./">AZ</a><a href="en.html" aria-current="page">EN</a></nav>
+  <header class="hero">
+    <img src="sona.webp" alt="Sona Karimli">
+    <div class="hero-text">
+      <span class="label">// Frontend Developer · Programming Instructor</span>
+      <h1>Sona Karimli</h1>
+      <p class="role">I build websites and <b>iOS / Android mobile apps</b>. At Developia Engineering I built the frontend of DevSys, a school management platform, and I have been teaching programming since 2023.</p>
+      <div class="actions">
+        <a class="btn primary" href="#elaqe">Start a project</a>
+        <a class="btn" href="#layiheler">See my work</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="xidmetler">
+    <div class="head">
+      <span class="label">// services</span>
+      <h2>What I can build for you</h2>
+    </div>
+    <div class="services">
+      <div class="svc">
+        <h3>Websites</h3>
+        <p>Company sites, landing pages and portfolios. Mobile-friendly design, multilingual support, contact forms.</p>
+      </div>
+      <div class="svc">
+        <h3>Web apps and dashboards</h3>
+        <p>Portals with user login, admin panels, reports, charts and API integration.</p>
+      </div>
+      <div class="svc">
+        <h3>Mobile apps</h3>
+        <p>iOS and Android apps with React Native, including release to the App Store and Google Play.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="layiheler">
+    <div class="head">
+      <span class="label">// projects</span>
+      <h2>Work in real use</h2>
+      <p class="lead">These projects were built at Developia Engineering and are in use today. The code belongs to the company and is private, but the live products are linked below.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <div class="shot"><img src="devsys.webp" alt="DevSys teacher, student and parent portal login screens" loading="lazy"></div>
+        <div class="pbody">
+          <h3>DevSys — school management platform</h3>
+          <ul>
+            <li>Teacher portal: lesson flow, grading, attendance, quizzes, Excel export, statistics</li>
+            <li>Student portal: timed quizzes, video lessons, grades, learning games</li>
+            <li>Parent portal: grades, attendance, payments</li>
+          </ul>
+          <div class="tags"><span class="tag">React</span><span class="tag">Zustand</span><span class="tag">Redux</span><span class="tag">Recharts</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+          <div class="links"><a href="https://devsys.az/teacher" target="_blank" rel="noopener">Teacher portal</a><a href="https://devsys.az/student" target="_blank" rel="noopener">Student portal</a><a href="https://devsys.az/parent" target="_blank" rel="noopener">Parent portal</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="mobile.webp" alt="DevSys Parent Control on the App Store" loading="lazy"></div>
+        <div class="pbody">
+          <h3>DevSys Parent Control — mobile app</h3>
+          <ul>
+            <li>Grades, class schedule, PDF documents and a satisfaction survey for parents</li>
+            <li>New features, Expo upgrades, Android builds and CI</li>
+          </ul>
+          <p class="note">The app was originally built by a teammate; since it was handed over to me I develop and maintain it.</p>
+          <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">iOS</span><span class="tag">Android</span></div>
+          <div class="links"><a href="https://apps.apple.com/us/app/devsys-parent-control/id6760163960" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.developiadevsys.developia" target="_blank" rel="noopener">Google Play</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="developia.webp" alt="developia.az home page" loading="lazy"></div>
+        <div class="pbody">
+          <h3>Developia Engineering — company website</h3>
+          <ul>
+            <li>Home, about, contact and 24 project pages</li>
+            <li>Available in Azerbaijani, Russian and English</li>
+            <li>Portfolio filters, animations, contact form connected to the WordPress API</li>
+          </ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">i18n</span></div>
+          <div class="links"><a href="https://developia.az" target="_blank" rel="noopener">developia.az</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="muellimlik">
+    <div class="head">
+      <span class="label">// teaching</span>
+      <h2>I also teach coding</h2>
+      <p class="lead">I teach programming to children and young people at Developia Engineering Academy. I explain complex topics in plain language, and every lesson ends with a hands-on project.</p>
+    </div>
+    <div class="teach">
+      <div class="fact"><span class="num">Since 2023</span><p>programming instructor</p></div>
+      <div class="fact"><span class="num">HTML · CSS · JS · React · Scratch</span><p>subjects I teach</p></div>
+    </div>
+  </section>
+
+  <section id="elaqe" class="contact">
+    <div class="head">
+      <span class="label">// contact</span>
+      <h2>Have a project? Get in touch.</h2>
+      <p class="lead">Tell me briefly about your website or app: what it is for, which pages or screens you need and your deadline. I will reply with a price and timeline.</p>
+    </div>
+    <div class="mail">
+      <code id="email">kerimlisona97@gmail.com</code>
+      <button class="btn copy" data-target="email" type="button">Copy</button>
+    </div>
+    <div class="mail">
+      <code id="phone">+994 51 344 14 21</code>
+      <button class="btn copy" data-target="phone" type="button">Copy</button>
+      <a class="btn" href="https://wa.me/994513441421" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="socials">
+      <a class="btn" href="https://www.tiktok.com/@sona.teacher" target="_blank" rel="noopener">TikTok</a>
+      <a class="btn" href="https://www.linkedin.com/in/sona-k%C9%99rimli-83014b253" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Sona-Kerim" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <footer>Baku, Azerbaijan</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){ b.addEventListener('click', function(){
+  var el = document.getElementById(b.dataset.target), t = el.textContent, s = document.getElementById('status');
+  function fallback(){ var r=document.createRange(); r.selectNodeContents(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); s.textContent='Selected. Press Ctrl+C to copy.'; }
+  try { navigator.clipboard.writeText(t).then(function(){ s.textContent='Copied: '+t; }, fallback); } catch(e){ fallback(); }
+}); });
+</script>
+</body>
+</html>
